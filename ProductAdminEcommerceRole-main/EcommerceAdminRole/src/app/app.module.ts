@@ -9,11 +9,16 @@ import { MaterialModule } from './shared/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductAdminComponent } from './product-admin/product-admin.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ModalComponent } from './modal/modal.component';
+import { ProductService } from './product.service';
+import { PersistanceService } from './shared/services/persistance.service';
+import { ConfigurationService } from './shared/services/configuration.service';
 @NgModule({
   declarations: [
     AppComponent,
     ProductAdminComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

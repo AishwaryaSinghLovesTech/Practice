@@ -1,1 +1,49 @@
-<p>product-details works!</p>
+<mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="info">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> info </mat-header-cell>
+      <mat-cell *matCellDef="let row"> 
+      
+        <figure>
+          
+          <img  class="productImage" [src] = "row.img">
+          <figcaption>{{row.name}}</figcaption>
+
+        </figure>
+       
+    
+    </mat-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.price}}$ </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="desc">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Desc </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.desc}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color"> 
+        <mat-icon>update</mat-icon>
+        <mat-icon>delete</mat-icon>
+    
+    </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+    
+   
+</mat-table>
+<mat-paginator [length]="_productService.productList.length" pageSize=5
+               (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 15]"
+               showFirstLastButtons="true">
+</mat-paginator>

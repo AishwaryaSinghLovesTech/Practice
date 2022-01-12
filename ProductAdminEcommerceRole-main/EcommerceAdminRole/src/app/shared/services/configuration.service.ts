@@ -8,7 +8,13 @@ export class ConfigurationService {
   env = "test"
   constructor(public _persistance:PersistanceService) { 
 
-    _persistance.set("productUrl","assets/mock-json/products.json")
-
+   
   }
+
+   activateConfigSettings(env?:String)
+   {
+    this._persistance.set("productUrl","assets/mock-json/products.json")
+
+     
+   }
 }
