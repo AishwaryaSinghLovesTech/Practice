@@ -1,0 +1,15 @@
+.adminWelcome{
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    color:#424242;
+    font-weight:400;
+
+}
+
+
+.banner{
+    background-color: #D7CCC8;
+    padding:2rem;
+
+}
