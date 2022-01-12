@@ -1,49 +1,48 @@
 <mat-table [dataSource]="dataSource" matSort>
 
-    <!-- ID Column -->
-    <ng-container matColumnDef="Info">
-      <mat-header-cell *matHeaderCellDef > Info </mat-header-cell>
-      <mat-cell *matCellDef="let row"> 
-      
-        <figure>
-          
-          <img  class="productImage" [src] = "row.img">
-          <figcaption>{{row.name}}</figcaption>
+  <!-- ID Column -->
+  <ng-container matColumnDef="Info">
+    <mat-header-cell *matHeaderCellDef> Info </mat-header-cell>
+    <mat-cell *matCellDef="let row">
 
-        </figure>
-       
-    
+      <figure>
+
+        <img class="productImage" [src]="row.img">
+        <figcaption>{{row.name}}</figcaption>
+
+      </figure>
+
+
     </mat-cell>
-    </ng-container>
+  </ng-container>
 
-    <!-- Progress Column -->
-    <ng-container matColumnDef="Price">
-      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.price}}$ </mat-cell>
-    </ng-container>
+  <!-- Progress Column -->
+  <ng-container matColumnDef="Price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.price}}$ </mat-cell>
+  </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="Description">
-      <mat-header-cell *matHeaderCellDef > Description </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.desc}} </mat-cell>
-    </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="Description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.desc}} </mat-cell>
+  </ng-container>
 
-    <!-- Color Column -->
-    <ng-container matColumnDef="Action">
-      <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
-      <mat-cell *matCellDef="let row; let i = index" [style.color]="row.color"> 
-        <mat-icon style="cursor:pointer!important" (click)="updateProductEntry(row,i)">update</mat-icon>
-        <mat-icon  style="cursor:pointer!important" (click)="deleteProductEntry(row,i)">delete</mat-icon>
-    
+  <!-- Color Column -->
+  <ng-container matColumnDef="Action">
+    <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+    <mat-cell *matCellDef="let row; let i = index" [style.color]="row.color">
+      <mat-icon style="cursor:pointer!important" (click)="updateProductEntry(row,i)">update</mat-icon>
+      <mat-icon style="cursor:pointer!important" (click)="deleteProductEntry(row,i)">delete</mat-icon>
+
     </mat-cell>
-    </ng-container>
+  </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
-    
-   
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+
 </mat-table>
-<mat-paginator [length]="_productService.productList.length" pageSize=5
-               (page)="getPaginatorData($event)" [pageSizeOptions]="[5, 10, 15]"
-               showFirstLastButtons="true">
+<mat-paginator [length]="_productService.productList.length" pageSize=5 (page)="getPaginatorData($event)"
+  [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons="true">
 </mat-paginator>

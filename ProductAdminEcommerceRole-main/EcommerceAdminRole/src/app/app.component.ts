@@ -9,11 +9,11 @@ import { ConfigurationService } from './shared/services/configuration.service';
 })
 export class AppComponent implements OnInit {
   title = 'EcommerceAdminRole';
-  constructor(public _configService:ConfigurationService, public _productService:ProductService){
+  constructor(public _configService: ConfigurationService, public _productService: ProductService) {
     this._configService.activateConfigSettings()
     this._productService.getProductList();
   }
   ngOnInit(): void {
-   
+
   }
 }
