@@ -27,4 +27,18 @@ The skills that are covered are httpClient, observables, structure and ordering 
 
 The skills that are not covered well are Finished UI and unit test cases due to time constrant.
 
+# Deployment ready or not
+
+![image](https://user-images.githubusercontent.com/24896409/149186943-e4202123-05e6-4747-af66-2b242ad23560.png)
+
+ng build --prod is successful so from that point of view it is deployment ready.
+
+# Time analysis and gaps
+logic building and basic framework - 1 hour
+Coding the logic  - 2 hour
+UI changes - 30 minutes
+Unit test cases - Could not cover due to time constraint...
+Code coverage and Ui finishing need to be worked on.
+
+
 
