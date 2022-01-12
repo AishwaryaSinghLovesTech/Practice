@@ -2,7 +2,7 @@
 
     <!-- ID Column -->
     <ng-container matColumnDef="info">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> info </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef > info </mat-header-cell>
       <mat-cell *matCellDef="let row"> 
       
         <figure>
@@ -18,19 +18,19 @@
 
     <!-- Progress Column -->
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.price}}$ </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="desc">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Desc </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef > Desc </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.desc}} </mat-cell>
     </ng-container>
 
     <!-- Color Column -->
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
       <mat-cell *matCellDef="let row" [style.color]="row.color"> 
         <mat-icon>update</mat-icon>
         <mat-icon>delete</mat-icon>

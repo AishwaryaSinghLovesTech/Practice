@@ -23,18 +23,9 @@ export class ProductDetailsComponent implements OnInit, AfterContentChecked{
   constructor(public _productService:ProductService) { }
 
   ngOnInit(): void {
-    this._productService.getProductList().subscribe(data=>{
-      let productList = data.slice(0,25);
-      let productOptionsList = data.slice(26,data.length-1);
-      productList.forEach((element:any)=> {
-       this._productService.productList.push(new productdto(element))
-      });
-      productOptionsList.forEach((element:any)=> {
-        this._productService.productOptions.push(new productdto(element))
-       });
-    }
+    
       
-      )
+    
      
   }
 

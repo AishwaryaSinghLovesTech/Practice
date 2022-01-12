@@ -13,6 +13,7 @@ import { ModalComponent } from './modal/modal.component';
 import { ProductService } from './product.service';
 import { PersistanceService } from './shared/services/persistance.service';
 import { ConfigurationService } from './shared/services/configuration.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { ConfigurationService } from './shared/services/configuration.service';
     SharedModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

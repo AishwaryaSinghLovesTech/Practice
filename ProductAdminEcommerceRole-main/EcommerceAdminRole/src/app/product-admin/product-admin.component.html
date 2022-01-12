@@ -1,1 +1,33 @@
-<p>product-admin works!</p>
+<form class="example-form" [formGroup]="productForm">
+    <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Pick one" aria-label="Product Name" matInput [formControl]="myControlName" [matAutocomplete]="auto"
+       
+        >
+        <mat-autocomplete #auto="matAutocomplete" >
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="productForm.get('name')!.hasError('required')">
+            Name is Required!
+           </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Price in $"  [formControl]="myControlPrice" >
+        <mat-error *ngIf="productForm.get('price')!.hasError('required')">
+         Price is Required!
+        </mat-error>
+        <mat-error *ngIf="productForm.get('price')!.hasError('pattern')">
+            Price should be numeric
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+        <input matInput placeholder="Description"  [formControl]="myControlDesc">
+        <mat-error *ngIf="productForm.get('desc')!.hasError('required')">
+        Decsription is Required!
+        </mat-error>
+        </mat-form-field>
+        <button mat-button type="submit" [disabled]="!productForm.valid" [mat-dialog-close]="true"
+        (click) = "addProduct(productForm.value)"
+        >Add Product</button>
+</form>
