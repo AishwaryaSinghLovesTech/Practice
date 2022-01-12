@@ -1,8 +1,8 @@
 <mat-table [dataSource]="dataSource" matSort>
 
     <!-- ID Column -->
-    <ng-container matColumnDef="info">
-      <mat-header-cell *matHeaderCellDef > info </mat-header-cell>
+    <ng-container matColumnDef="Info">
+      <mat-header-cell *matHeaderCellDef > Info </mat-header-cell>
       <mat-cell *matCellDef="let row"> 
       
         <figure>
@@ -17,23 +17,23 @@
     </ng-container>
 
     <!-- Progress Column -->
-    <ng-container matColumnDef="price">
+    <ng-container matColumnDef="Price">
       <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.price}}$ </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="desc">
-      <mat-header-cell *matHeaderCellDef > Desc </mat-header-cell>
+    <ng-container matColumnDef="Description">
+      <mat-header-cell *matHeaderCellDef > Description </mat-header-cell>
       <mat-cell *matCellDef="let row"> {{row.desc}} </mat-cell>
     </ng-container>
 
     <!-- Color Column -->
-    <ng-container matColumnDef="action">
+    <ng-container matColumnDef="Action">
       <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.color"> 
-        <mat-icon>update</mat-icon>
-        <mat-icon>delete</mat-icon>
+      <mat-cell *matCellDef="let row; let i = index" [style.color]="row.color"> 
+        <mat-icon style="cursor:pointer!important" (click)="updateProductEntry(row,i)">update</mat-icon>
+        <mat-icon  style="cursor:pointer!important" (click)="deleteProductEntry(row,i)">delete</mat-icon>
     
     </mat-cell>
     </ng-container>

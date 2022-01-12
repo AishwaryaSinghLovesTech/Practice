@@ -6,13 +6,14 @@ import { MatDialog } from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { ModalComponent } from '../modal/modal.component';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit, AfterContentChecked{
-  displayedColumns = ['info', 'price', 'desc', 'action'];
+  displayedColumns = ['Info', 'Price', 'Description', 'Action'];
   dataSource!: MatTableDataSource<Product>;
   public pageSize = 10;
   public currentPage = 0;
@@ -20,7 +21,7 @@ export class ProductDetailsComponent implements OnInit, AfterContentChecked{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public _productService:ProductService) { }
+  constructor(public _productService:ProductService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     
@@ -53,6 +54,24 @@ export class ProductDetailsComponent implements OnInit, AfterContentChecked{
     this.highValue = this.lowValue + event.pageSize;
     this.dataSource = new MatTableDataSource(this._productService.productList.slice(this.lowValue,this.highValue))
     return event;
+  }
+
+  updateProductEntry(row:any,index:any){
+   const dialogRef = this.dialog.open(ModalComponent,{
+    data:{
+      index:index,
+      product:row
+    }
+  });
+  }
+
+  deleteProductEntry(row:any,index:any){
+    const dialogRef = this.dialog.open(ModalComponent,{
+      data:{
+        index:index,
+        
+      }
+    });
   }
   
 }

@@ -12,7 +12,7 @@ export class ProductAdminComponent implements OnInit, AfterContentChecked {
   productForm!: FormGroup;
   productNames:any[]=[]
   myControlName: FormControl = new FormControl('', [Validators.required])
-  myControlPrice:FormControl = new FormControl('',[Validators.required, Validators.pattern('[0-9]+')])
+  myControlPrice:FormControl = new FormControl('',[Validators.required, Validators.pattern('[+-]?([0-9]*[.])?[0-9]+')])
   myControlDesc:FormControl = new FormControl('',[Validators.required])
   filteredOptions!: Observable<string[]>;
   constructor(private formBuilder: FormBuilder, public _productService:ProductService) { }

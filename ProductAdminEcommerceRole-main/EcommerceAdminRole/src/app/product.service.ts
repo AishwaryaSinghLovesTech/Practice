@@ -35,7 +35,7 @@ export class ProductService {
       productOptionsList.forEach((element:any)=> {
         this.productOptions.push(new productdto(element))
        });
-       console.log(this.productList, this.productOptions)
+      
     }) 
     
   }
